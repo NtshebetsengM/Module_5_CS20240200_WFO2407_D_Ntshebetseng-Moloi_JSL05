@@ -11,6 +11,13 @@ const songs = [
     { title: "Come and Get Your Love", artist: "Redbone", genre: "Rock" },
     { title: "I'm Not in Love", artist: "10cc", genre: "Pop" },
     { title: "Fooled Around and Fell in Love", artist: "Elvin Bishop", genre: "Rock" },
+    //----------------------added songs----------------------//
+    { title: "Why Don't You", artist: "Cleo Sol", genre: "Neo-Soul" },
+    { title: "Say My Name", artist: "Destiny's Child", genre: "R&B" },
+    { title: "Cranes in the Sky", artist: "Solange", genre: "Neo-Soul" },
+    { title: "Red Room", artist: "Hiatus Kaiyote", genre: "Neo-Soul" },
+    { title: "Not like us", artist: "Kendrick Lamar", genre: "Hip Hop" },
+    { title: "One Dance", artist: "Drake", genre: "Hip Hop" },
     // Feel free to add even more songs
 ];
 
