@@ -33,12 +33,54 @@ const guardians = {
 };
 
 // Function to generate playlist based on preferred genre
-function generatePlaylist(guardians, songs) {
+const generatePlaylist= (guardians, songs) => {
     // Use the map() function to create playlists for each Guardian
     // Your code here
+    return Object.entries(guardians).map(([guardianName, preferedGenre]) =>{
+        const playlist = songs.filter( song => song.genre === preferedGenre);
+       return{guardianName, playlist} 
+    })
 }
 
 // Call generatePlaylist and display the playlists for each Guardian
-generatePlaylist(guardians, songs);
 
 
+const guardianPlaylists = generatePlaylist(guardians, songs);
+
+const displayPlaylists = guardianPlaylists.forEach(({guardianName, playlist}) => {
+    createBlock( guardianName, playlist)
+})
+
+
+
+function createBlock(guardianName, playlist){
+    const playlists = document.getElementById('playlists') 
+    const newList = document.createElement('div')
+    
+    newList.innerHTML = `<h2> ${guardianName}'s Playlist </h2>
+                         <ul></ul>`
+
+    const ul = newList.querySelector('ul')
+    ul.style.listStyleType = 'none';
+    playlists.appendChild(newList)
+    
+    
+    
+    playlist.forEach(song =>{
+        const li = document.createElement('li')
+        const span = document.createElement('span')
+        
+        const songTitle = song.title
+        span.textContent = `${songTitle} `
+        span.classList.add("song-title")
+        li.appendChild(span)
+
+        const artistName = song.artist
+        li.innerHTML += `by ${artistName}`
+        ul.appendChild(li)    
+        li.classList.add("song")
+})
+
+newList.classList.add("playlist")
+playlists.appendChild(newList)
+}
